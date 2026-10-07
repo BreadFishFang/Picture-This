@@ -37,7 +37,9 @@ img {
 /***********************************************************************
                                 Main styles 
  ***********************************************************************/
- /* center the full content horizontally */
+ /* center the full content horizontally, 
+ but sience the header take all the full page space,
+ Visually, it makes no difference whether this part is there or not, haha.  */
 .container {
   margin: 0 auto;
 }
@@ -46,12 +48,11 @@ img {
                                 Image 
  ***********************************************************************/
 /* the image table shows landscape image at 960px are 960px 1x, 1920px 2x, 2880px 3x.
-                         square image at 960px are 480px 1x, 960px 2x, 1440px 3x.
-                      over 960px- like 1280px are 640px 1x, 1280px 2x, 1920px 3x.
+                             square image at 960px are 480px 1x, 960px 2x, 1440px 3x.
+                          over 960px- like 1280px are 640px 1x, 1280px 2x, 1920px 3x.
 
   start with the largest image, 960px or larger, the image displayed is square,
-  and then use image-set to set the smaller images for different viewports.
-*/
+  and then use image-set to set the smaller images for different viewports.*/
 /* css file don't have a folder, 
 so the path is from the root folder, don't need the ../ */
 @media (min-width: 960px) {
@@ -76,6 +77,20 @@ so the path is from the root folder, don't need the ../ */
   }
 }
 
+/* this is for smaller than 960px, use the landscape image. */
+@media (max-width:960px) {
+  .main-image-forsize{
+  /* landscape image at 960px are 960px 1x, 1920px 2x, 2880px 3x. */
+  height: 480px;
+  background-image:image-set(
+    "/images/museum-960x.jpg" 1x,
+    "/images/museum-1920x.jpg" 2x,
+    "/images/museum-2880x.jpg" 3x
+  );
+  
+  background-position: center 100%;
+  }
+}
 
   
 
