@@ -38,3 +38,33 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/***********************************************************************
+                                Main styles 
+ ***********************************************************************/
+ /* center the full content horizontally */
+.container {
+  margin: 0 auto;
+}
+
+/***********************************************************************
+                                Image 
+ ***********************************************************************/
+/* the image table shows landscape image at 960px are 960px 1x, 1920px 2x, 2880px 3x.
+                         square image at 960px are 480px 1x, 960px 2x, 1440px 3x.
+                      over 960px- like 1280px are 640px 1x, 1280px 2x, 1920px 3x.
+
+  start with the largest image, 960px or larger, the image displayed is square,
+  and then use image-set to set the smaller images for different viewports.
+*/
+/* css file don't have a folder, 
+so the path is from the root folder, don't need the ../ */
+.main-image-forsize{
+  /* give the image a height, so it will show the image,
+  otherwise the image will not show, because the section has no content. */
+  height: 480px;
+  background-image:image-set(
+    "/images/museum-480x480.jpg" 1x,
+    "/images/museum-960x960.jpg" 2x,
+    "/images/museum-1440x1440.jpg" 3x
+  )
+}
